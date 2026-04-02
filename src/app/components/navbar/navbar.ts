@@ -1,4 +1,5 @@
-import { Component, signal, HostListener } from '@angular/core';
+import { Component, signal, inject, HostListener } from '@angular/core';
+import { TranslationService } from '../../i18n/translation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,7 @@ import { Component, signal, HostListener } from '@angular/core';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  i18n = inject(TranslationService);
   isScrolled = signal(false);
   menuOpen = signal(false);
 

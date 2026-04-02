@@ -1,12 +1,12 @@
 <section class="projects section" id="projects">
   <div class="container">
-    <h2 class="section-title" appScrollAnimation direction="bottom">Proyectos</h2>
+    <h2 class="section-title" appScrollAnimation direction="bottom">{{ i18n.t().projects.title }}</h2>
     <p class="section-subtitle" appScrollAnimation direction="bottom" [delay]="100">
-      Algunos de los proyectos en los que he trabajado, combinando desarrollo full stack con integraciones de IA.
+      {{ i18n.t().projects.subtitle }}
     </p>
 
     <div class="projects-grid">
-      @for (project of projects; track project.title; let i = $index) {
+      @for (project of i18n.t().projects.items; track project.title; let i = $index) {
         <article class="project-card" appScrollAnimation [direction]="i % 2 === 0 ? 'left' : 'right'" [delay]="i * 100">
           <div class="card-header">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">

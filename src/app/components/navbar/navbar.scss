@@ -43,6 +43,36 @@ nav {
   }
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @include respond($bp-tablet) {
+    order: 2;
+  }
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.6rem;
+  font-family: $font-heading;
+  font-size: $fs-small;
+  font-weight: 600;
+  color: $accent-gold;
+  border: 1px solid $accent-gold;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $accent-gold;
+    color: $bg-primary;
+  }
+}
+
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -108,6 +138,7 @@ nav {
     padding: 0;
     gap: 2rem;
     transform: none;
+    order: 1;
   }
 
   li a {
@@ -120,6 +151,16 @@ nav {
     letter-spacing: 0.5px;
 
     &:hover {
+      color: $accent-gold;
+    }
+  }
+
+  .nav-lang-mobile {
+    @include respond($bp-tablet) {
+      display: none;
+    }
+
+    a {
       color: $accent-gold;
     }
   }

@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ScrollAnimation } from '../../directives/scroll-animation';
+import { TranslationService } from '../../i18n/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +16,7 @@ import { ScrollAnimation } from '../../directives/scroll-animation';
 })
 export class Contact {
   private fb = inject(FormBuilder);
+  i18n = inject(TranslationService);
 
   submitted = signal(false);
 

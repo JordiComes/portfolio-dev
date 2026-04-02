@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ScrollAnimation } from '../../directives/scroll-animation';
+import { TranslationService } from '../../i18n/translation.service';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,8 @@ import { ScrollAnimation } from '../../directives/scroll-animation';
   styleUrl: './about.scss',
 })
 export class About {
+  i18n = inject(TranslationService);
+
   technologies = [
     'JavaScript',
     'TypeScript',
