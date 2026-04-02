@@ -1,0 +1,88 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.projects {
+  background-color: $bg-primary;
+}
+
+.section-subtitle {
+  color: $text-secondary;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  margin-top: 1.5rem;
+  line-height: 1.7;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @include respond($bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond($bp-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  background: $bg-tertiary;
+  border: 1px solid $border-subtle;
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $accent-gold;
+    box-shadow: 0 8px 30px rgba($accent-gold, 0.08);
+  }
+}
+
+.card-header {
+  margin-bottom: 1.5rem;
+
+  svg {
+    color: $accent-gold;
+  }
+}
+
+.card-title {
+  font-size: $fs-h3;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: $text-heading;
+  transition: color 0.3s ease;
+
+  .project-card:hover & {
+    color: $accent-gold;
+  }
+}
+
+.card-description {
+  font-size: $fs-small;
+  color: $text-secondary;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+
+  .tag {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: rgba($bg-card, 0.8);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+}

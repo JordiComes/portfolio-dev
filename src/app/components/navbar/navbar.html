@@ -1,0 +1,17 @@
+<nav [class.scrolled]="isScrolled()" [class.menu-open]="menuOpen()">
+  <div class="nav-container">
+    <a class="logo" (click)="scrollTo('#hero')">JCO<span class="accent">.</span></a>
+
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" [class.active]="menuOpen()">
+      <li><a (click)="scrollTo('#about')">About</a></li>
+      <li><a (click)="scrollTo('#projects')">Projects</a></li>
+      <li><a (click)="scrollTo('#contact')">Contact</a></li>
+    </ul>
+  </div>
+</nav>

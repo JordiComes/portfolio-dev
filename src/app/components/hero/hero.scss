@@ -1,0 +1,162 @@
+@use 'sass:color';
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/animations';
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  &::before {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($accent-gold, 0.08) 0%, transparent 70%);
+    top: -10%;
+    right: -10%;
+  }
+
+  &::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba($accent-blue, 0.06) 0%, transparent 70%);
+    bottom: -10%;
+    left: -5%;
+    animation-delay: 4s;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 800px;
+}
+
+.hero-greeting {
+  font-size: $fs-small;
+  color: $accent-gold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-name {
+  font-size: $fs-hero;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+
+  .accent {
+    color: $accent-gold;
+  }
+}
+
+.hero-role {
+  font-family: $font-body;
+  font-size: $fs-h3;
+  font-weight: 300;
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.6s;
+
+  .separator {
+    color: $accent-gold;
+    margin: 0 0.25rem;
+  }
+}
+
+.hero-tagline {
+  font-size: $fs-body;
+  color: $text-secondary;
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  background: $accent-gold;
+  color: $bg-primary;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: $fs-body;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1s;
+
+  &:hover {
+    background: color.adjust($accent-gold, $lightness: 8%);
+    transform: translateX(4px);
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1.4s;
+
+  .mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid $border-subtle;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+
+    .wheel {
+      width: 3px;
+      height: 8px;
+      background: $accent-gold;
+      border-radius: 2px;
+      animation: fadeInUp 1.5s ease-in-out infinite;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// === Death Stranding Palette ===
+$bg-primary: #0a0a0a;
+$bg-secondary: #111111;
+$bg-tertiary: #1a1a1a;
+$bg-card: #2a2a2a;
+$border-subtle: #333333;
+
+$accent-gold: #c8a84e;
+$accent-gold-dim: #8a7235;
+$accent-blue: #7a8fa6;
+$accent-blue-dim: #4e6174;
+
+$text-primary: #e8e8e8;
+$text-secondary: #999999;
+$text-heading: #f0f0f0;
+
+// === Breakpoints ===
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1440px;
+
+// === Spacing ===
+$section-padding-y: clamp(4rem, 8vw, 8rem);
+$content-max-width: 1200px;
+
+// === Mixins ===
+@mixin respond($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}

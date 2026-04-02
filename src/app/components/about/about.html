@@ -1,0 +1,41 @@
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image" appScrollAnimation direction="left">
+        <div class="image-placeholder">
+          <span class="initials">JCO</span>
+        </div>
+        <div class="image-decoration"></div>
+      </div>
+
+      <div class="about-content" appScrollAnimation direction="right">
+        <h2 class="section-title">Sobre mí</h2>
+        <p class="about-text">
+          Soy desarrollador de aplicaciones y me encanta crear soluciones donde la tecnología
+          y la Inteligencia Artificial realmente aportan valor.
+        </p>
+        <p class="about-text">
+          Trabajo a diario con JavaScript, React.js, Angular, Node.js y PHP, construyendo apps
+          que no solo funcionan bien, sino que hacen la vida más fácil a quienes las usan.
+        </p>
+        <p class="about-text">
+          Actualmente formo parte de <span class="accent-text">UVE Group</span>, donde desarrollo
+          aplicaciones con integraciones de IA para clientes muy reconocidos.
+        </p>
+        <p class="about-text">
+          Disfruto mucho del proceso: entender el reto, encontrar la mejor manera de resolverlo
+          y convertirlo en una app clara, útil y bien hecha.
+        </p>
+
+        <div class="tech-stack" appScrollAnimation direction="bottom" [delay]="200">
+          <h3 class="tech-title">Tech Stack</h3>
+          <div class="tech-pills">
+            @for (tech of technologies; track tech) {
+              <span class="pill">{{ tech }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

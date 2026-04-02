@@ -1,0 +1,79 @@
+<section class="contact section" id="contact">
+  <div class="container">
+    <h2 class="section-title" appScrollAnimation direction="bottom">Contacto</h2>
+    <p class="contact-subtitle" appScrollAnimation direction="bottom" [delay]="100">
+      ¿Tienes un proyecto en mente? Me encantaría escucharte.
+    </p>
+
+    <div class="contact-wrapper" appScrollAnimation direction="bottom" [delay]="200">
+      @if (!submitted()) {
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              placeholder="Tu nombre"
+              [class.error]="isInvalid('name')"
+            />
+            @if (isInvalid('name')) {
+              <span class="error-msg">El nombre debe tener al menos 2 caracteres.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="tu@email.com"
+              [class.error]="isInvalid('email')"
+            />
+            @if (isInvalid('email')) {
+              <span class="error-msg">Introduce un email válido.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              placeholder="Cuéntame sobre tu proyecto..."
+              rows="5"
+              [class.error]="isInvalid('message')"
+            ></textarea>
+            @if (isInvalid('message')) {
+              <span class="error-msg">El mensaje debe tener al menos 10 caracteres.</span>
+            }
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Enviar mensaje
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      } @else {
+        <div class="success-message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <h3>Mensaje enviado</h3>
+          <p>Gracias por contactarme. Te responderé lo antes posible.</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Jordi Comes Orrit. Todos los derechos reservados.</p>
+  </div>
+</footer>

@@ -1,0 +1,115 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.about {
+  background-color: $bg-secondary;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+
+  @include respond($bp-tablet) {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+  }
+}
+
+.about-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .image-placeholder {
+    width: 220px;
+    height: 280px;
+    background: linear-gradient(135deg, $bg-card, $bg-tertiary);
+    border: 1px solid $border-subtle;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    @include respond($bp-tablet) {
+      width: 280px;
+      height: 350px;
+    }
+
+    .initials {
+      font-family: $font-heading;
+      font-size: 3rem;
+      font-weight: 700;
+      color: $accent-gold;
+      opacity: 0.6;
+    }
+  }
+
+  .image-decoration {
+    position: absolute;
+    width: 220px;
+    height: 280px;
+    border: 2px solid $accent-gold;
+    border-radius: 8px;
+    top: 15px;
+    left: calc(50% - 95px);
+    opacity: 0.3;
+
+    @include respond($bp-tablet) {
+      width: 280px;
+      height: 350px;
+      left: calc(50% - 125px);
+    }
+  }
+}
+
+.about-content {
+  .section-title {
+    margin-bottom: 2rem;
+  }
+}
+
+.about-text {
+  color: $text-secondary;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+
+  &:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+
+.tech-stack {
+  margin-top: 1rem;
+}
+
+.tech-title {
+  font-size: $fs-h3;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: $text-heading;
+}
+
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  .pill {
+    padding: 0.4rem 1rem;
+    background: $bg-card;
+    border: 1px solid $border-subtle;
+    border-radius: 20px;
+    font-size: $fs-small;
+    color: $text-secondary;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $accent-gold;
+      color: $accent-gold;
+    }
+  }
+}
