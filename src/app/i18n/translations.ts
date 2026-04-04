@@ -113,7 +113,7 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
     },
     contact: {
       title: 'Contacto',
-      subtitle: '¿Tienes un proyecto en mente? Me encantaría escucharte.',
+      subtitle: '¿Interesado en mi perfil? Déjame tus datos y te enviaré mi CV.',
       nameLabel: 'Nombre',
       namePlaceholder: 'Tu nombre',
       nameError: 'El nombre debe tener al menos 2 caracteres.',
@@ -121,12 +121,12 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       emailPlaceholder: 'tu@email.com',
       emailError: 'Introduce un email válido.',
       messageLabel: 'Mensaje',
-      messagePlaceholder: 'Cuéntame sobre tu proyecto...',
+      messagePlaceholder: 'Cuéntame un poco sobre ti o tu empresa...',
       messageError: 'El mensaje debe tener al menos 10 caracteres.',
-      submit: 'Enviar mensaje',
-      successTitle: 'Mensaje enviado',
+      submit: 'Solicitar CV',
+      successTitle: 'Solicitud enviada',
       successMessage:
-        'Gracias por contactarme. Te responderé lo antes posible.',
+        'Gracias por tu interés. Revisaré tu solicitud y te enviaré mi CV a la mayor brevedad.',
     },
   },
   en: {
@@ -197,7 +197,7 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
     },
     contact: {
       title: 'Contact',
-      subtitle: 'Have a project in mind? I would love to hear from you.',
+      subtitle: 'Interested in my profile? Leave me your details and I\'ll send you my CV.',
       nameLabel: 'Name',
       namePlaceholder: 'Your name',
       nameError: 'Name must be at least 2 characters.',
@@ -205,12 +205,12 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       emailPlaceholder: 'your@email.com',
       emailError: 'Enter a valid email address.',
       messageLabel: 'Message',
-      messagePlaceholder: 'Tell me about your project...',
+      messagePlaceholder: 'Tell me a bit about you or your company...',
       messageError: 'Message must be at least 10 characters.',
-      submit: 'Send message',
-      successTitle: 'Message sent',
+      submit: 'Request CV',
+      successTitle: 'Request sent',
       successMessage:
-        'Thank you for reaching out. I will get back to you as soon as possible.',
+        'Thank you for your interest. I will review your request and send you my CV as soon as possible.',
     },
   },
 };
