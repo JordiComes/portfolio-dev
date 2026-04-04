@@ -3,8 +3,13 @@
     <div class="fog-layer"></div>
     <div class="fog-layer fog-layer-2"></div>
     <div class="particles">
-      @for (i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; track i) {
-        <div class="particle" [style.--delay]="i * 0.2 + 's'" [style.--left]="(i * 7) + '%'"></div>
+      @for (i of particles; track i; let idx = $index) {
+        <div class="particle" 
+             [style.--delay]="idx * 0.1 + 's'" 
+             [style.--left]="leftPositions[idx] + '%'" 
+             [style.--drift]="drifts[idx] + 'px'"
+             [style.--size]="(idx % 3 + 2) + 'px'"
+             [style.--duration]="(4 + idx * 0.12) + 's'"></div>
       }
     </div>
   </div>
