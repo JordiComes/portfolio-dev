@@ -1,59 +1,72 @@
-# Portfolio
+# Portfolio - Jordi Comes
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+Portfolio personal desarrollado con Angular 21, con una estética cinematográfica gótica inspirada en Death Stranding.
 
-## Development server
+## Tecnologías
 
-To start a local development server, run:
+- **Framework:** Angular 21.2.6
+- **Estilos:** SCSS con sistema de variables, mixins y animaciones custom
+- **Idiomas:** Soporte bilingüe Español / Inglés (sistema i18n propio)
+
+## Estructura del proyecto
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── intro/        # Pantalla de introducción cinematográfica
+│   │   ├── hero/         # Sección principal con presentación
+│   │   ├── navbar/       # Barra de navegación
+│   │   ├── about/        # Sección "Sobre mí"
+│   │   ├── projects/     # Galería de proyectos
+│   │   └── contact/      # Formulario/sección de contacto
+│   ├── pipes/
+│   │   └── roman-numeral.pipe.ts  # Pipe para convertir números a romanos
+│   └── i18n/
+│       └── translations.ts        # Traducciones ES/EN
+├── styles/
+│   ├── _variables.scss   # Paleta de colores, breakpoints, mixins
+│   ├── _typography.scss  # Tipografías y escalas de fuente
+│   └── _animations.scss  # Keyframes y clases de animación
+└── index.html
+```
+
+## Características de diseño
+
+### Intro cinematográfica
+Pantalla completa de bienvenida con capas de niebla animada, partículas flotantes, formas SVG orgánicas y texto con efecto blur-reveal. Se desvanece automáticamente tras 4 segundos.
+
+### Paleta "Cinematic Gothic"
+- **Fondos:** Tonos oscuros azulados (`#0a0b0f`, `#0f1116`, `#14161d`)
+- **Acentos:** Ámbar/dorado (`#b8860b`) con efectos glow
+- **Texto:** Blancos cálidos con secundarios en gris azulado
+
+### Sistema de animaciones
+Animaciones reutilizables organizadas por categoría:
+- **Entrada:** fadeInUp, fadeInDown, fadeInLeft, fadeInRight, scaleIn
+- **Atmosféricas:** pulse, pulse-glow, float, drift, mist-move, grain, shimmer, breathe
+- **Partículas:** particle-float
+- **Intro:** intro-fade, intro-text-reveal, intro-line-draw
+
+### Efectos visuales globales
+- Capa de atmósfera con gradientes radiales animados
+- Overlay de grano cinematográfico (film grain)
+- Decoraciones de esquina en secciones
+- Backdrop blur en tarjetas (`card-backdrop` mixin)
+- Text glow en encabezados (`text-glow` mixin)
+
+## Desarrollo
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Servidor de desarrollo (http://localhost:4200)
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+# Build de producción
 ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
+# Tests unitarios
 ng test
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
