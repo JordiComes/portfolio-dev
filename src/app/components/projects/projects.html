@@ -4,6 +4,29 @@
     <div class="bg-grid"></div>
   </div>
 
+  <!-- Eclipse (behind projects) -->
+  <div class="eclipse-container" #eclipseRef>
+    <div class="eclipse-fog">
+      <div class="eclipse-fog-layer"></div>
+      <div class="eclipse-fog-layer eclipse-fog-layer-2"></div>
+    </div>
+    <div class="eclipse">
+      <div class="eclipse-glow"></div>
+      <div class="eclipse-arc"></div>
+      <div class="eclipse-surface"></div>
+      <div class="eclipse-particles">
+        @for (p of [1,2,3,4,5,6,7,8,9,10,11,12]; track p) {
+          <div class="eclipse-particle" [style.--p-delay]="p * 0.3 + 's'" [style.--p-left]="(p * 8) + '%'"></div>
+        }
+      </div>
+      <div class="eclipse-debris">
+        @for (d of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]; track d) {
+          <div class="debris-particle" [style.--d-delay]="d * 0.2 + 's'" [style.--d-x]="(d * 13 % 80 + 10) + '%'" [style.--d-y]="(d * 7 % 18 + 26) + '%'" [style.--d-size]="(d % 4 + 1) + 'px'"></div>
+        }
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="section-header">
       <h2 class="section-title" appScrollAnimation direction="bottom">{{ i18n.t().projects.title }}</h2>
