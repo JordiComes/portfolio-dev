@@ -42,9 +42,6 @@ export interface Translations {
     successTitle: string;
     successMessage: string;
   };
-  footer: {
-    rights: string;
-  };
 }
 
 export const TRANSLATIONS: Record<Lang, Translations> = {
@@ -131,9 +128,6 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       successMessage:
         'Gracias por contactarme. Te responderé lo antes posible.',
     },
-    footer: {
-      rights: 'Todos los derechos reservados.',
-    },
   },
   en: {
     nav: {
@@ -217,9 +211,6 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       successTitle: 'Message sent',
       successMessage:
         'Thank you for reaching out. I will get back to you as soon as possible.',
-    },
-    footer: {
-      rights: 'All rights reserved.',
     },
   },
 };
