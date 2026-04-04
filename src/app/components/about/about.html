@@ -1,18 +1,57 @@
 <section class="about section" id="about">
+  <!-- Decorative Background Elements -->
+  <div class="about-bg">
+    <div class="bg-line line-1"></div>
+    <div class="bg-line line-2"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <!-- Corner Decorations -->
+  <div class="corner-decoration top-left"></div>
+  <div class="corner-decoration top-right"></div>
+  <div class="corner-decoration bottom-left"></div>
+  <div class="corner-decoration bottom-right"></div>
+
   <div class="container">
     <div class="about-grid">
-      <div class="about-image" appScrollAnimation direction="left">
-        <div class="image-placeholder">
-          <span class="initials">JCO</span>
+      <div class="about-visual" appScrollAnimation direction="left">
+        <div class="visual-frame">
+          <div class="frame-border">
+            <div class="initials-container">
+              <span class="initials-glyph">&#10022;</span>
+              <span class="initials-text">JCO</span>
+              <span class="initials-glyph">&#10022;</span>
+            </div>
+            <div class="frame-line top"></div>
+            <div class="frame-line bottom"></div>
+          </div>
+          <div class="visual-accent"></div>
         </div>
-        <div class="image-decoration"></div>
+
+        <!-- Decorative Ornaments -->
+        <svg class="ornament ornament-1" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.3"/>
+        </svg>
+        <svg class="ornament ornament-2" viewBox="0 0 100 100">
+          <path d="M50 5 L95 50 L50 95 L5 50 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        </svg>
       </div>
 
       <div class="about-content" appScrollAnimation direction="right">
         <h2 class="section-title">{{ i18n.t().about.title }}</h2>
-        @for (paragraph of i18n.t().about.bio; track $index) {
-          <p class="about-text" [innerHTML]="paragraph"></p>
-        }
+
+        <div class="bio-container">
+          @for (paragraph of i18n.t().about.bio; track $index) {
+            <p class="about-text" [innerHTML]="paragraph"></p>
+          }
+        </div>
+
+        <div class="divider-accent">
+          <span class="divider-line"></span>
+          <span class="divider-diamond">&#9670;</span>
+          <span class="divider-line"></span>
+        </div>
 
         <div class="tech-stack" appScrollAnimation direction="bottom" [delay]="200">
           <h3 class="tech-title">{{ i18n.t().about.techTitle }}</h3>

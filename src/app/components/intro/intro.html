@@ -1,0 +1,31 @@
+<div class="intro-overlay">
+  <div class="intro-atmosphere">
+    <div class="fog-layer"></div>
+    <div class="fog-layer fog-layer-2"></div>
+    <div class="particles">
+      @for (i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; track i) {
+        <div class="particle" [style.--delay]="i * 0.2 + 's'" [style.--left]="(i * 7) + '%'"></div>
+      }
+    </div>
+  </div>
+
+  <div class="intro-content">
+    <div class="line-decoration top"></div>
+
+    <div class="intro-text-container">
+      <span class="intro-glyph">&#10022;</span>
+      <h1 class="intro-name">Jordi Comes</h1>
+      <p class="intro-welcome">Bienvenidos a mi portfolio</p>
+      <div class="intro-line"></div>
+      <p class="intro-subtitle">Full Stack Developer</p>
+      <span class="intro-glyph bottom">&#10022;</span>
+    </div>
+
+    <div class="line-decoration bottom"></div>
+
+    <svg class="organic-shape" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+      <path class="shape-path" d="M100,10 Q150,50 140,100 T100,190 Q50,150 60,100 T100,10" fill="none" stroke="currentColor" stroke-width="0.5" />
+      <circle class="shape-circle" cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.3" />
+    </svg>
+  </div>
+</div>

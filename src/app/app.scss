@@ -1,7 +1,129 @@
+@use '../styles/variables' as *;
+@use '../styles/typography' as *;
+
 :host {
   display: block;
 }
 
 main {
   display: block;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+
+  &.content-visible {
+    opacity: 1;
+  }
+}
+
+// === Global Atmosphere Layer ===
+.app-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba($accent-blue-dim, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba($accent-amber, 0.05) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, rgba($accent-blue, 0.03) 0%, transparent 70%);
+    animation: breathe 15s ease-in-out infinite;
+  }
+
+  // Cinematic grain overlay
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    animation: grain 8s steps(10) infinite;
+    pointer-events: none;
+  }
+}
+
+// === Section Base ===
+.section {
+  position: relative;
+  z-index: 1;
+  padding: $section-padding-y 0;
+}
+
+.container {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @include respond($bp-tablet) {
+    padding: 0 2rem;
+  }
+}
+
+// === Section Title ===
+.section-title {
+  font-family: $font-heading;
+  font-size: $fs-h2;
+  font-weight: 400;
+  color: $text-heading;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, $accent-amber, transparent);
+  }
+}
+
+// === Decorative Elements ===
+.corner-decoration {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba($accent-amber, 0.2);
+
+  &.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &.top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  &.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+  }
+
+  &.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+  }
+}
+
+.vertical-line {
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba($accent-amber, 0.3), transparent);
 }

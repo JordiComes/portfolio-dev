@@ -1,18 +1,20 @@
-// === Death Stranding Palette ===
-$bg-primary: #0a0a0a;
-$bg-secondary: #111111;
-$bg-tertiary: #1a1a1a;
-$bg-card: #2a2a2a;
-$border-subtle: #333333;
+// === Cinematic Gothic Palette ===
+$bg-primary: #0a0b0f;
+$bg-secondary: #0f1116;
+$bg-tertiary: #14161d;
+$bg-card: #1a1d26;
+$border-subtle: #252a35;
 
-$accent-gold: #c8a84e;
-$accent-gold-dim: #8a7235;
-$accent-blue: #7a8fa6;
-$accent-blue-dim: #4e6174;
+$accent-amber: #b8860b;
+$accent-amber-dim: #7a5c08;
+$accent-amber-glow: rgba(184, 134, 11, 0.15);
+$accent-blue: #4a5568;
+$accent-blue-dim: #2d3748;
 
-$text-primary: #e8e8e8;
-$text-secondary: #999999;
-$text-heading: #f0f0f0;
+$text-primary: #e2e4e9;
+$text-secondary: #8b92a8;
+$text-heading: #f0f2f7;
+$text-muted: #5a6275;
 
 // === Breakpoints ===
 $bp-mobile: 480px;
@@ -21,7 +23,7 @@ $bp-desktop: 1024px;
 $bp-wide: 1440px;
 
 // === Spacing ===
-$section-padding-y: clamp(4rem, 8vw, 8rem);
+$section-padding-y: clamp(5rem, 10vw, 10rem);
 $content-max-width: 1200px;
 
 // === Mixins ===
@@ -29,4 +31,14 @@ $content-max-width: 1200px;
   @media (min-width: $bp) {
     @content;
   }
+}
+
+// === Atmosphere Effects ===
+@mixin text-glow {
+  text-shadow: 0 0 40px rgba(184, 134, 11, 0.3), 0 0 80px rgba(184, 134, 11, 0.1);
+}
+
+@mixin card-backdrop {
+  background: rgba(26, 29, 38, 0.6);
+  backdrop-filter: blur(12px);
 }

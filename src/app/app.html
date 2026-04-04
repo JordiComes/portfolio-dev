@@ -1,5 +1,9 @@
+@if (!introComplete()) {
+  <app-intro (onComplete)="onIntroComplete()" />
+}
+
 <app-navbar />
-<main>
+<main [class.content-visible]="introComplete()">
   <app-hero />
   <app-about />
   <app-projects />

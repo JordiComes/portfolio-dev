@@ -58,7 +58,7 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       greeting: 'Hola, soy',
       role: 'Full Stack Developer | AI Integrations',
       tagline:
-        'Creo soluciones donde la tecnología y la Inteligencia Artificial aportan valor real.',
+        'Creo soluciones donde la tecnología y la Inteligencia Artificial aportan valor',
       cta: 'Ver Proyectos',
     },
     about: {

@@ -1,22 +1,55 @@
+@use 'sass:color';
 @use '../../../styles/variables' as *;
 @use '../../../styles/typography' as *;
 
 .projects {
+  position: relative;
   background-color: $bg-primary;
+  overflow: hidden;
+}
+
+// === Background Grid ===
+.projects-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba($accent-amber, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($accent-amber, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+}
+
+.section-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4rem;
 }
 
 .section-subtitle {
-  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba($text-secondary, 0.8);
   max-width: 600px;
-  margin-bottom: 3rem;
   margin-top: 1.5rem;
   line-height: 1.7;
 }
 
+// === Projects Grid ===
 .projects-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 
   @include respond($bp-tablet) {
     grid-template-columns: repeat(2, 1fr);
@@ -27,62 +60,167 @@
   }
 }
 
+// === Project Card ===
 .project-card {
-  background: $bg-tertiary;
-  border: 1px solid $border-subtle;
-  border-radius: 8px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  perspective: 1000px;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: $accent-gold;
-    box-shadow: 0 8px 30px rgba($accent-gold, 0.08);
+    .card-frame {
+      transform: translateY(-4px);
+      border-color: rgba($accent-amber, 0.3);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba($accent-amber, 0.1);
+    }
+
+    .card-corner {
+      opacity: 0.6;
+    }
+
+    .card-title {
+      color: $accent-amber;
+    }
+
+    .project-icon {
+      color: $accent-amber;
+    }
   }
+}
+
+.card-frame {
+  position: relative;
+  background: rgba($bg-card, 0.4);
+  border: 1px solid rgba($border-subtle, 0.5);
+  padding: 2rem;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba($accent-amber, 0.3);
+  opacity: 0.3;
+  transition: all 0.3s ease;
+
+  &.top-left {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &.top-right {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  &.bottom-left {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+  }
+
+  &.bottom-right {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+  }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
+}
 
-  svg {
-    color: $accent-gold;
-  }
+.project-number {
+  font-family: $font-heading;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: rgba($accent-amber, 0.5);
+}
+
+.project-icon {
+  color: rgba($text-secondary, 0.5);
+  transition: color 0.3s ease;
 }
 
 .card-title {
-  font-size: $fs-h3;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-family: $font-heading;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
   color: $text-heading;
   transition: color 0.3s ease;
-
-  .project-card:hover & {
-    color: $accent-gold;
-  }
 }
 
 .card-description {
-  font-size: $fs-small;
-  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba($text-secondary, 0.8);
   line-height: 1.7;
   flex: 1;
   margin-bottom: 1.5rem;
 }
 
+// === Card Divider ===
+.card-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: auto 0 1.25rem;
+
+  .divider-dot {
+    width: 3px;
+    height: 3px;
+    background: rgba($accent-amber, 0.4);
+    border-radius: 50%;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba($accent-amber, 0.2), transparent 80%);
+  }
+}
+
+// === Tags ===
 .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: auto;
 
   .tag {
-    font-size: 0.75rem;
-    color: $text-secondary;
-    padding: 0.2rem 0.6rem;
-    border-radius: 3px;
-    background: rgba($bg-card, 0.8);
     font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: rgba($text-secondary, 0.7);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba($border-subtle, 0.8);
+    background: rgba($bg-tertiary, 0.5);
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: rgba($accent-amber, 0.3);
+      color: rgba($accent-amber, 0.8);
+    }
   }
 }

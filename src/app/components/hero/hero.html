@@ -1,21 +1,56 @@
 <section class="hero" id="hero">
-  <div class="hero-bg"></div>
+  <!-- Atmospheric Background Layers -->
+  <div class="hero-atmosphere">
+    <div class="ambient-glow"></div>
+    <div class="fog-layer fog-1"></div>
+    <div class="fog-layer fog-2"></div>
+    <div class="organic-orb orb-1"></div>
+    <div class="organic-orb orb-2"></div>
+
+    <!-- Decorative Lines -->
+    <svg class="decorative-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="0" y1="50" x2="30" y2="50" class="line-h" />
+      <line x1="70" y1="50" x2="100" y2="50" class="line-h" />
+      <line x1="50" y1="0" x2="50" y2="20" class="line-v" />
+      <line x1="50" y1="80" x2="50" y2="100" class="line-v" />
+    </svg>
+  </div>
+
+  <!-- Corner Decorations -->
+  <div class="corner-accent top-left"></div>
+  <div class="corner-accent top-right"></div>
+  <div class="corner-accent bottom-left"></div>
+  <div class="corner-accent bottom-right"></div>
+
   <div class="hero-content">
     <p class="hero-greeting">{{ i18n.t().hero.greeting }}</p>
-    <h1 class="hero-name">Jordi Comes<span class="accent"> Orrit</span></h1>
+
+    <h1 class="hero-name">
+      <span class="name-main">Jordi Comes</span>
+    </h1>
+
+    <div class="hero-divider">
+      <span class="divider-line"></span>
+      <span class="divider-glyph">&#10022;</span>
+      <span class="divider-line"></span>
+    </div>
+
     <h2 class="hero-role">{{ i18n.t().hero.role }}</h2>
+
     <p class="hero-tagline">{{ i18n.t().hero.tagline }}</p>
+
     <button class="hero-cta" (click)="scrollTo('#projects')">
-      {{ i18n.t().hero.cta }}
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <span class="cta-text">{{ i18n.t().hero.cta }}</span>
+      <span class="cta-line"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="5" y1="12" x2="19" y2="12"></line>
         <polyline points="12 5 19 12 12 19"></polyline>
       </svg>
     </button>
   </div>
+
   <div class="scroll-indicator">
-    <div class="mouse">
-      <div class="wheel"></div>
-    </div>
+    <div class="indicator-line"></div>
+    <div class="indicator-text">Scroll</div>
   </div>
 </section>
