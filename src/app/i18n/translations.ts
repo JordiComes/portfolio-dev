@@ -41,6 +41,11 @@ export interface Translations {
     submit: string;
     successTitle: string;
     successMessage: string;
+    securityError?: string;
+    securityFieldError?: string;
+    securityScriptError?: string;
+    rateLimitError?: string;
+    maxLengthError?: string;
   };
 }
 
@@ -127,6 +132,11 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       successTitle: 'Solicitud enviada',
       successMessage:
         'Gracias por tu interés. Revisaré tu solicitud y te enviaré mi CV a la mayor brevedad.',
+      securityError: 'Error de seguridad. Por favor, inténtalo de nuevo.',
+      securityFieldError: 'Caracteres no permitidos detectados.',
+      securityScriptError: 'Etiquetas de script no están permitidas.',
+      rateLimitError: 'Por favor, espera unos segundos antes de enviar de nuevo.',
+      maxLengthError: 'El texto es demasiado largo.',
     },
   },
   en: {
@@ -211,6 +221,11 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
       successTitle: 'Request sent',
       successMessage:
         'Thank you for your interest. I will review your request and send you my CV as soon as possible.',
+      securityError: 'Security error. Please try again.',
+      securityFieldError: 'Invalid characters detected.',
+      securityScriptError: 'Script tags are not allowed.',
+      rateLimitError: 'Please wait a few seconds before submitting again.',
+      maxLengthError: 'Text is too long.',
     },
   },
 };

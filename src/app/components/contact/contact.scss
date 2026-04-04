@@ -191,6 +191,10 @@
   flex-direction: column;
   gap: 0.75rem;
 
+  &.honeypot {
+    display: none;
+  }
+
   label {
     display: flex;
     align-items: center;
@@ -249,6 +253,30 @@
   .error-msg {
     font-family: $font-body;
     font-size: 0.8rem;
+    color: #e74c3c;
+  }
+}
+
+// Security Error
+.security-error {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(#c0392b, 0.1);
+  border: 1px solid rgba(#c0392b, 0.3);
+  border-radius: 0;
+  margin-bottom: 0.5rem;
+
+  svg {
+    flex-shrink: 0;
+    color: #e74c3c;
+  }
+
+  span {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    font-weight: 400;
     color: #e74c3c;
   }
 }
