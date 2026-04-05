@@ -10,6 +10,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { ScrollAnimation } from '../../directives/scroll-animation';
 import { TranslationService } from '../../i18n/translation.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -22,7 +23,7 @@ export class Contact implements OnInit {
   private http = inject(HttpClient);
   i18n = inject(TranslationService);
 
-  private readonly API_URL = 'http://localhost:3000/api/contact';
+  private readonly API_URL = environment.apiUrl;
 
   submitted = signal(false);
   securityError = signal<string | null>(null);

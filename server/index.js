@@ -41,16 +41,20 @@ const mailer = nodemailer.createTransport({
 });
 
 async function sendNotificationEmail({ name, email, message }) {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+
   await mailer.sendMail({
     from: `"Portfolio" <${process.env.BREVO_FROM_EMAIL}>`,
     to: process.env.NOTIFY_EMAIL,
-    subject: `📩 Nueva solicitud de CV - ${name}`,
+    subject: `Nueva solicitud de CV - ${name}`,
     html: `
       <h2>Nueva solicitud de CV recibida</h2>
-      <p><strong>Nombre:</strong> ${name}</p>
-      <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+      <p><strong>Nombre:</strong> ${safeName}</p>
+      <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
       <p><strong>Mensaje:</strong></p>
-      <blockquote style="border-left:4px solid #ccc;padding-left:12px;color:#555;">${message.replace(/\n/g, '<br>')}</blockquote>
+      <blockquote style="border-left:4px solid #ccc;padding-left:12px;color:#555;">${safeMessage}</blockquote>
     `,
   });
 }
@@ -72,16 +76,28 @@ const Contact = mongoose.model('Contact', contactSchema);
 
 // ── Helpers de validación ─────────────────────────────────────────────────────
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const HTML_TAG_REGEX = /<[^>]*>/;
+
+function escapeHtml(text) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+  return text.replace(/[&<>"']/g, (c) => map[c]);
+}
 
 function validateContact({ name, email, message }) {
   if (!name || typeof name !== 'string' || name.trim().length < 2 || name.trim().length > 100) {
     return 'El nombre debe tener entre 2 y 100 caracteres.';
+  }
+  if (HTML_TAG_REGEX.test(name)) {
+    return 'El nombre contiene caracteres no permitidos.';
   }
   if (!email || typeof email !== 'string' || !EMAIL_REGEX.test(email.trim()) || email.length > 254) {
     return 'El email no tiene un formato válido.';
   }
   if (!message || typeof message !== 'string' || message.trim().length < 10 || message.trim().length > 2000) {
     return 'El mensaje debe tener entre 10 y 2000 caracteres.';
+  }
+  if (HTML_TAG_REGEX.test(message)) {
+    return 'El mensaje contiene caracteres no permitidos.';
   }
   return null;
 }
