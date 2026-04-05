@@ -7,6 +7,7 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { ScrollAnimation } from '../../directives/scroll-animation';
 import { TranslationService } from '../../i18n/translation.service';
 
@@ -18,7 +19,10 @@ import { TranslationService } from '../../i18n/translation.service';
 })
 export class Contact implements OnInit {
   private fb = inject(FormBuilder);
+  private http = inject(HttpClient);
   i18n = inject(TranslationService);
+
+  private readonly API_URL = 'http://localhost:3000/api/contact';
 
   submitted = signal(false);
   securityError = signal<string | null>(null);
@@ -139,14 +143,24 @@ export class Contact implements OnInit {
 
     if (this.form.valid) {
       this.lastSubmitTime = Date.now();
-      const sanitizedData = {
+      const payload = {
         name: this.sanitizeInput(this.form.get('name')?.value),
         email: this.sanitizeInput(this.form.get('email')?.value),
         message: this.sanitizeInput(this.form.get('message')?.value),
+        website: this.form.get(this.honeypotField)?.value ?? '',
       };
-      console.log('Form submitted with sanitized data:', sanitizedData);
-      this.submitted.set(true);
-      this.form.reset({ formLoadTime: Date.now() });
+
+      this.http.post(this.API_URL, payload).subscribe({
+        next: () => {
+          this.submitted.set(true);
+          this.form.reset({ formLoadTime: Date.now() });
+        },
+        error: () => {
+          this.securityError.set(
+            this.i18n.t().contact.securityError || 'Error al enviar el mensaje. Inténtalo de nuevo.'
+          );
+        },
+      });
     } else {
       this.form.markAllAsTouched();
     }
