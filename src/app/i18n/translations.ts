@@ -79,22 +79,22 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
         'Algunos de los proyectos en los que he trabajado, combinando desarrollo full stack con integraciones de IA.',
       items: [
         {
-          title: 'AI Customer Assistant',
+          title: 'LIVIA — Plataforma IA Generativa',
           description:
-            'Chatbot inteligente con procesamiento de lenguaje natural para atención al cliente automatizada, integrado con APIs de IA generativa.',
-          tags: ['Angular', 'Node.js', 'OpenAI', 'WebSockets'],
+            'Plataforma centralizada que integra múltiples LLMs (ChatGPT, Gemini, Claude) en un único entorno colaborativo para equipos de marketing y contenido. Incluye generador de email-marketing, contenido editorial y SEO, social media, editor colaborativo en tiempo real, sistema de prompts personalizable y acceso por API.',
+          tags: ['Angular', 'Node.js', 'LLMs', 'REST API'],
         },
         {
-          title: 'Data Analytics Dashboard',
+          title: 'Portal de Proveedores Pampols',
           description:
-            'Panel de análisis de datos en tiempo real con visualizaciones interactivas y predicciones basadas en modelos de machine learning.',
-          tags: ['React.js', 'Python', 'TensorFlow', 'D3.js'],
+            'Aplicación web para la gestión y homologación de proveedores de la empresa Pampols. Permite el alta de nuevos proveedores mediante un cuestionario guiado, la subida y verificación de documentos ISO, y el control automatizado de su caducidad con avisos proactivos, eliminando el proceso manual anterior.',
+          tags: ['Angular', 'PHP', 'SQL', 'REST API'],
         },
         {
-          title: 'Smart Document Processor',
+          title: 'Webs Kit Digital — Natural Optics Group',
           description:
-            'Sistema de procesamiento automático de documentos con extracción de datos mediante IA y clasificación inteligente.',
-          tags: ['Angular', 'PHP', 'AI/ML', 'REST API'],
+            'Desarrollo de más de 30 sitios web para asociados de Natural Optics Group dentro del programa Kit Digital. Cada web incluía sistema de reserva de citas online, diseño responsive, soporte multiidioma (catalán, castellano, inglés), gestión de cookies y galerías dinámicas, con una estructura común adaptada a cada óptica.',
+          tags: ['CodeIgniter', 'PHP', 'SQL', 'Kit Digital'],
         },
         {
           title: 'E-Commerce Platform',
@@ -168,22 +168,22 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
         'Some of the projects I have worked on, combining full stack development with AI integrations.',
       items: [
         {
-          title: 'AI Customer Assistant',
+          title: 'LIVIA — Generative AI Platform',
           description:
-            'Intelligent chatbot with natural language processing for automated customer service, integrated with generative AI APIs.',
-          tags: ['Angular', 'Node.js', 'OpenAI', 'WebSockets'],
+            'Centralised platform integrating multiple LLMs (ChatGPT, Gemini, Claude) into a single collaborative workspace for marketing and content teams. Features an email-marketing generator, editorial and SEO content, social media, real-time collaborative editor, customisable prompt system, and API access.',
+          tags: ['Angular', 'Node.js', 'LLMs', 'REST API'],
         },
         {
-          title: 'Data Analytics Dashboard',
+          title: 'Pampols Supplier Portal',
           description:
-            'Real-time data analytics dashboard with interactive visualizations and predictions based on machine learning models.',
-          tags: ['React.js', 'Python', 'TensorFlow', 'D3.js'],
+            'Web application for managing and certifying suppliers for Pampols. Enables supplier registration through a guided questionnaire, ISO document upload and verification, and automated expiry tracking with proactive alerts — replacing a fully manual process.',
+          tags: ['Angular', 'PHP', 'SQL', 'REST API'],
         },
         {
-          title: 'Smart Document Processor',
+          title: 'Kit Digital Websites — Natural Optics Group',
           description:
-            'Automatic document processing system with AI-powered data extraction and intelligent classification.',
-          tags: ['Angular', 'PHP', 'AI/ML', 'REST API'],
+            'Development of over 30 websites for Natural Optics Group associates under the Kit Digital programme. Each site featured an online appointment booking system, responsive design, multilingual support (Catalan, Spanish, English), cookie consent management, and dynamic galleries — built on a shared structure tailored to each optical store.',
+          tags: ['CodeIgniter', 'PHP', 'SQL', 'Kit Digital'],
         },
         {
           title: 'E-Commerce Platform',

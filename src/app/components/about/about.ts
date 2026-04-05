@@ -12,6 +12,10 @@ export class About {
   i18n = inject(TranslationService);
 
   technologies = [
+    'Python',
+    'Quantum Computing',
+    'Qiskit',
+    'IBM Quantum',
     'JavaScript',
     'TypeScript',
     'Angular',
