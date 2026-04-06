@@ -1,4 +1,5 @@
-import { Component, output } from '@angular/core';
+import { Component, output, inject } from '@angular/core';
+import { TranslationService } from '../../i18n/translation.service';
 
 @Component({
   selector: 'app-intro',
@@ -7,6 +8,7 @@ import { Component, output } from '@angular/core';
   styleUrl: './intro.scss',
 })
 export class Intro {
+  i18n = inject(TranslationService);
   onComplete = output<void>();
 
   particles = Array.from({length: 40}, (_, i) => i + 1);

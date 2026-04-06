@@ -1,6 +1,9 @@
 export type Lang = 'es' | 'en';
 
 export interface Translations {
+  intro: {
+    welcome: string;
+  };
   nav: {
     about: string;
     projects: string;
@@ -51,6 +54,9 @@ export interface Translations {
 
 export const TRANSLATIONS: Record<Lang, Translations> = {
   es: {
+    intro: {
+      welcome: 'Bienvenidos a mi portfolio',
+    },
     nav: {
       about: 'Sobre mí',
       projects: 'Proyectos',
@@ -140,6 +146,9 @@ export const TRANSLATIONS: Record<Lang, Translations> = {
     },
   },
   en: {
+    intro: {
+      welcome: 'Welcome to my portfolio',
+    },
     nav: {
       about: 'About',
       projects: 'Projects',
